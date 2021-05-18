@@ -1,0 +1,26 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "the nineth odin project",
+  "private": true,
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode=production",
+    "building": "webpack --watch --mode=production",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aurelien-genois/weather-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aurelien-genois/weather-app/issues"
+  },
+  "homepage": "https://github.com/aurelien-genois/weather-app#readme",
+  "devDependencies": {
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0"
+  }
+}
