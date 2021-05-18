@@ -1,0 +1,1 @@
+(()=>{"use strict";var __webpack_modules__={138:()=>{eval("\n\nconst h1 = document.querySelector('h1');\nh1.textContent = 'Hello Formofo!';\nconsole.log(h1);\n\n\n//# sourceURL=webpack://weather-app/./src/index.js?")}},__webpack_exports__={};__webpack_modules__[138]()})();
