@@ -13,14 +13,13 @@ module.exports = {
       title: 'Weather app',
       template: 'src/index.html',
     }),
-    new MiniCssExtractPlugin(),
   ],
   devtool: 'eval',
   module: {
     rules: [
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
