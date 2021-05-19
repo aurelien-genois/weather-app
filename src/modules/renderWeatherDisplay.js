@@ -43,7 +43,9 @@ const renderWeatherDisplay = ((dom) => {
     const ul = dom.createElement('ul');
     ul.id = 'search-city-list';
     const cityLis = cityList.map(_createCityLi);
-    ul.appendChild(...cityLis);
+    cityLis.forEach((cityLi) => {
+      ul.appendChild(cityLi);
+    });
     return ul;
   };
 
