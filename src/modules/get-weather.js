@@ -30,6 +30,7 @@ const getWeather = (() => {
 
   const _getCurrentWeather = (weatherObj) => {
     return {
+      timeZone: weatherObj.timezone,
       dateTime: weatherObj.current.dt,
       iconCode: weatherObj.current.weather[0].icon,
       weatherText: weatherObj.current.weather[0].description,
