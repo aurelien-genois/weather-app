@@ -70,11 +70,11 @@ const getWeather = (() => {
   // get data return an array of current/hourly/daily
   const getData = async (cityName, countryCode) => {
     let weatherData = await _getWeatherData(cityName, countryCode);
-    return [
-      _getCurrentWeather(weatherData),
-      _getHourlyWeather(weatherData),
-      _getDailyWeather(weatherData),
-    ];
+    return {
+      currentDatas: _getCurrentWeather(weatherData),
+      hourlyDatas: _getHourlyWeather(weatherData),
+      dailyDatas: _getDailyWeather(weatherData),
+    };
   };
 
   return { getData };

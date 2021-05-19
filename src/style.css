@@ -1,8 +1,123 @@
-h1 {
-  color: red;
+html {
+  font-size: 62.5%;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+ul,
+ol {
+  list-style: none;
+}
+
+/* site header */
+#site-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+#city-container {
+  display: flex;
+}
+
+/* search form */
+#search-city-form {
+  display: flex;
+  align-items: flex-start;
+}
+#search-city-form input[type='submit'] {
+  height: auto;
 }
 #search-city-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+}
+#search-city-list li {
+  cursor: pointer;
+}
+
+/* today current weather */
+#date-container {
+  margin-bottom: 1rem;
+}
+#today-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem auto;
+  width: min-content;
+  background-color: rgb(215, 236, 247);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+#current-weather-container {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+/* hourly weather */
+#hourly-weather-container {
+  display: flex;
+}
+.hourly-weather-li {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hourly-weather-li:nth-of-type(even) {
+  background: cornflowerblue;
+}
+.hourly-weather-li:nth-of-type(odd) {
+  background-color: powderblue;
+}
+
+/* daily weather */
+#daily-weather-container {
+  display: flex;
+  width: min-content;
+  margin: auto;
+}
+.daily-weather-li {
+  margin: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.daily-weather-li:nth-of-type(2n) {
+  /* or eveh */
+  background: lightcoral;
+}
+.daily-weather-li:nth-of-type(odd) {
+  background: plum;
+}
+
+/* footer */
+#site-footer {
+  background: rgb(23, 18, 54);
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: end;
+  position: fixed;
+  bottom: 0;
+  z-index: 2;
+}
+#site-footer p {
+  text-align: center;
+  color: whitesmoke;
+  margin: 1rem auto;
+}
+#site-footer a {
+  color: cyan;
+  text-decoration: none;
+}
+#site-footer a:visited {
+  color: palevioletred;
+}
+#site-footer a:hover {
+  color: lightgreen;
 }

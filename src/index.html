@@ -7,14 +7,127 @@
   </head>
   <!-- script and <style> are auto-added by webpack when building with respectively the Html-webpack-plugin and style-loader/css-loader -->
   <body>
-    <h1>Weather App</h1>
-    <form id="search-city-form">
-      <div id="search-city-container">
-        <input type="text" name="search-city-input" id="search-city-input" />
+    <header id="site-header">
+      <h1>Weather App</h1>
+      <div id="city-container">
+        <span><!-- add location icon --></span>
+        <p id="city-name">Taipei</p>
+        <form id="search-city-form">
+          <div id="search-city-container">
+            <input
+              type="text"
+              name="search-city-input"
+              id="search-city-input"
+            />
+          </div>
+          <input type="submit" value="Search" />
+        </form>
       </div>
-      <input type="submit" value="Search" />
-    </form>
-    <p id="city-name">Taipei</p>
-    <p id="weather-data">I'm Fofo</p>
+      <div id="switch-temp-container">
+        <!-- add switch checkbox -->
+        <p>Celsius (O--) Fahrenheit</p>
+      </div>
+      <!-- add a button to update infos ? -->
+    </header>
+
+    <section id="today-container">
+      <div id="date-container">
+        <p id="date-time">Date Time</p>
+      </div>
+      <div id="current-weather-container">
+        <img src="" alt="" id="current-weather-icon" />
+        <div id="current-weather-details">
+          <p id="current-weather-description"></p>
+          <div id="current-weather-temp-container">
+            <p id="current-weather-temp"></p>
+            <span><!-- add temperature icon --></span>
+          </div>
+        </div>
+      </div>
+      <ul id="hourly-weather-container">
+        <li class="hourly-weather-li">
+          <p class="hourly-weather-hour"></p>
+          <img src="" alt="" class="hourly-weather-icon" />
+          <p class="hourly-weather-temp"></p>
+        </li>
+        <li class="hourly-weather-li">
+          <p class="hourly-weather-hour"></p>
+          <img src="" alt="" class="hourly-weather-icon" />
+          <p class="hourly-weather-temp"></p>
+        </li>
+        <li class="hourly-weather-li">
+          <p class="hourly-weather-hour"></p>
+          <img src="" alt="" class="hourly-weather-icon" />
+          <p class="hourly-weather-temp"></p>
+        </li>
+        <li class="hourly-weather-li">
+          <p class="hourly-weather-hour"></p>
+          <img src="" alt="" class="hourly-weather-icon" />
+          <p class="hourly-weather-temp"></p>
+        </li>
+        <li class="hourly-weather-li">
+          <p class="hourly-weather-hour"></p>
+          <img src="" alt="" class="hourly-weather-icon" />
+          <p class="hourly-weather-temp"></p>
+        </li>
+        <li class="hourly-weather-li">
+          <p class="hourly-weather-hour"></p>
+          <img src="" alt="" class="hourly-weather-icon" />
+          <p class="hourly-weather-temp"></p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="week-container">
+      <ul id="daily-weather-container">
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+        <li class="daily-weather-li">
+          <p class="daily-weather-day"></p>
+          <img src="" alt="" class="daily-weather-icon" />
+          <p class="daily-weather-temp"></p>
+        </li>
+      </ul>
+    </section>
+
+    <footer id="site-footer">
+      <p>
+        <a href="https://github.com/aurelien-genois/weather-app" target="_blank"
+          >Ninth Odin project</a
+        >
+        created by
+        <a href="https://github.com/aurelien-genois" target="_blank"
+          >Aurélien Genois</a
+        >
+      </p>
+    </footer>
   </body>
 </html>

@@ -1,7 +1,8 @@
 import { getWeather } from './get-weather.js';
+import { fromUnixTime, format } from 'date-fns';
 
 const renderWeatherDisplay = ((dom) => {
-  const weatherDisplay = dom.querySelector('#weather-data');
+  /*** Manage search city ***/
   const searchCityForm = dom.querySelector('#search-city-form');
   const searchCityInput = dom.querySelector('#search-city-input');
   const searchCityContainer = dom.querySelector('#search-city-container');
@@ -18,9 +19,7 @@ const renderWeatherDisplay = ((dom) => {
   const _displaySearchedCityInfo = (city, country) => {
     // the last arg (after arg passed by bind()) is the event
     getWeather.getData(city, country).then((data) => {
-      // display the weather info
-      weatherDisplay.textContent = JSON.stringify(data);
-      console.log(data);
+      displayWeatherInfo(data);
     });
     searchCityInput.value = '';
     cityName.textContent = city;
@@ -48,7 +47,7 @@ const renderWeatherDisplay = ((dom) => {
     return ul;
   };
 
-  const searchCityFormSubmit = (e) => {
+  const _searchCityFormSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(searchCityForm);
     const searchValue = data.get('search-city-input');
@@ -66,10 +65,72 @@ const renderWeatherDisplay = ((dom) => {
       }
     });
   };
+  searchCityForm.addEventListener('submit', _searchCityFormSubmit);
 
-  searchCityForm.addEventListener('submit', searchCityFormSubmit);
+  /*** Display Weather ***/
+  const todayDateTime = dom.querySelector('#date-time');
+  const currentWeatherIcon = dom.querySelector('#current-weather-icon');
+  const currentWeatherDesc = dom.querySelector('#current-weather-description');
+  const currentWeatherTemp = dom.querySelector('#current-weather-temp');
+  const hourlyWeatherLis = dom.querySelectorAll('.hourly-weather-li');
+  const dailyWeatherLis = dom.querySelectorAll('.daily-weather-li');
 
-  return {};
+  // todo change '°C' to '°F' when switch temp unit
+  const _renderCurrentWeather = (currentDatas) => {
+    // datas is a current object
+    const date = fromUnixTime(currentDatas.dateTime);
+    todayDateTime.textContent = format(date, 'cccc d LLLL y');
+    currentWeatherIcon.src = `http://openweathermap.org/img/wn/${currentDatas.iconCode}.png`;
+    currentWeatherIcon.alt = currentDatas.weatherText;
+    currentWeatherDesc.textContent = currentDatas.weatherText;
+    currentWeatherTemp.textContent = `${currentDatas.temperature.toFixed(1)}°C`;
+
+    console.log(currentDatas);
+  };
+
+  const _renderHourlyWeather = (hourlyDatas) => {
+    // datas is an array of hours object
+    hourlyWeatherLis.forEach((li, i) => {
+      const hourlyWeatherHour = li.querySelector('.hourly-weather-hour');
+      const hourlyWeatherIcon = li.querySelector('.hourly-weather-icon');
+      const hourlyWeatherTemp = li.querySelector('.hourly-weather-temp');
+      const hour = fromUnixTime(hourlyDatas[i].dateTime);
+      hourlyWeatherHour.textContent = `${format(hour, 'H')}h`;
+      hourlyWeatherIcon.src = `http://openweathermap.org/img/wn/${hourlyDatas[i].iconCode}.png`;
+      hourlyWeatherIcon.alt = hourlyDatas[i].weatherText;
+      hourlyWeatherTemp.textContent = `${hourlyDatas[
+        i
+      ].temperature.toFixed()}°C`;
+    });
+
+    console.log(hourlyDatas);
+  };
+
+  const _renderDailyWeather = (dailyDatas) => {
+    // datas is an array of days object
+    dailyWeatherLis.forEach((li, i) => {
+      const dailyWeatherHour = li.querySelector('.daily-weather-day');
+      const dailyWeatherIcon = li.querySelector('.daily-weather-icon');
+      const dailyWeatherTemp = li.querySelector('.daily-weather-temp');
+      const day = fromUnixTime(dailyDatas[i].dateTime);
+      dailyWeatherHour.textContent = format(day, 'ccc');
+      dailyWeatherIcon.src = `http://openweathermap.org/img/wn/${dailyDatas[i].iconCode}.png`;
+      dailyWeatherIcon.alt = dailyDatas[i].weatherText;
+      dailyWeatherTemp.textContent = `${dailyDatas[
+        i
+      ].minTemperature.toFixed()}°C/${dailyDatas[i].maxTemperature.toFixed()}`;
+    });
+
+    console.log(dailyDatas);
+  };
+
+  const displayWeatherInfo = (weatherDatas) => {
+    _renderCurrentWeather(weatherDatas.currentDatas);
+    _renderHourlyWeather(weatherDatas.hourlyDatas);
+    _renderDailyWeather(weatherDatas.dailyDatas);
+  };
+
+  return { displayWeatherInfo };
 })(document);
 
 export { renderWeatherDisplay };
