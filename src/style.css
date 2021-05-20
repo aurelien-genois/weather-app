@@ -19,15 +19,21 @@ ol {
 }
 #city-container {
   display: flex;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+  align-items: center;
 }
 
 /* search form */
 #search-city-form {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  margin-left: 1rem;
 }
 #search-city-form input[type='submit'] {
   height: auto;
+  cursor: pointer;
+  margin-left: 1rem;
 }
 #search-city-container {
   display: flex;
@@ -36,6 +42,69 @@ ol {
 }
 #search-city-list li {
   cursor: pointer;
+}
+
+/* switch temperature unit */
+#switch-temp-container {
+  position: relative;
+  display: grid;
+  grid-template-columns: 7rem auto 7rem;
+  align-items: center;
+}
+#switch-temp-checkbox {
+  position: absolute;
+  left: 0;
+  opacity: 0.01;
+}
+#switch-temp-checkbox + label {
+  position: relative;
+  margin: 0 0.5rem;
+  width: 4.6rem;
+  height: 2.2rem;
+  cursor: pointer;
+}
+#switch-temp-checkbox:not(:checked) + label::before,
+#switch-temp-checkbox:checked + label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: inherit;
+  box-sizing: border-box;
+  height: inherit;
+  border: rgb(161, 161, 129) solid 0.2rem;
+  border-radius: 1rem;
+  background-color: rgb(182, 182, 154);
+  display: inline-block;
+}
+
+#switch-temp-checkbox:not(:checked) + label::after,
+#switch-temp-checkbox:checked + label::after {
+  content: '';
+  position: absolute;
+  top: 0.2rem;
+  left: 0.2rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 0.9rem;
+  background-color: rgb(236, 236, 204);
+  transition: transform 0.15s ease-in-out;
+}
+
+#switch-temp-checkbox:not(:checked) + label::after {
+  transform: translate(0, 0);
+}
+#switch-temp-checkbox:checked + label::after {
+  transform: translate(2.4rem, 0);
+}
+#switch-temp-checkbox:checked + label::before {
+  background-color: rgb(24, 179, 190);
+}
+.switch-temp-text:nth-of-type(1) {
+  justify-self: right;
+}
+.switch-temp-text:nth-of-type(2) {
+  justify-self: left;
 }
 
 /* today current weather */
@@ -77,7 +146,7 @@ ol {
 /* daily weather */
 #daily-weather-container {
   display: flex;
-  width: min-content;
+  width: max-content;
   margin: auto;
 }
 .daily-weather-li {

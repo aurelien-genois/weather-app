@@ -24,8 +24,12 @@
         </form>
       </div>
       <div id="switch-temp-container">
-        <!-- add switch checkbox -->
-        <p>Celsius (O--) Fahrenheit</p>
+        <p class="switch-temp-text">Celsius</p>
+        <input type="checkbox" id="switch-temp-checkbox" name="temperature" />
+        <!-- label for switch style -->
+        <label for="switch-temp-checkbox" id="switch-temp-checkbox-label">
+        </label>
+        <p class="switch-temp-text">Fahrenheit</p>
       </div>
       <!-- add a button to update infos ? -->
     </header>
@@ -39,7 +43,10 @@
         <div id="current-weather-details">
           <p id="current-weather-description"></p>
           <div id="current-weather-temp-container">
-            <p id="current-weather-temp"></p>
+            <p id="current-weather-temp" class="temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </p>
             <span><!-- add temperature icon --></span>
           </div>
         </div>
@@ -48,32 +55,50 @@
         <li class="hourly-weather-li">
           <p class="hourly-weather-hour"></p>
           <img src="" alt="" class="hourly-weather-icon" />
-          <p class="hourly-weather-temp"></p>
+          <p class="hourly-weather-temp temp-text">
+            <span class="temp-value"></span>
+            <span class="temp-unit"></span>
+          </p>
         </li>
         <li class="hourly-weather-li">
           <p class="hourly-weather-hour"></p>
           <img src="" alt="" class="hourly-weather-icon" />
-          <p class="hourly-weather-temp"></p>
+          <p class="hourly-weather-temp temp-text">
+            <span class="temp-value"></span>
+            <span class="temp-unit"></span>
+          </p>
         </li>
         <li class="hourly-weather-li">
           <p class="hourly-weather-hour"></p>
           <img src="" alt="" class="hourly-weather-icon" />
-          <p class="hourly-weather-temp"></p>
+          <p class="hourly-weather-temp temp-text">
+            <span class="temp-value"></span>
+            <span class="temp-unit"></span>
+          </p>
         </li>
         <li class="hourly-weather-li">
           <p class="hourly-weather-hour"></p>
           <img src="" alt="" class="hourly-weather-icon" />
-          <p class="hourly-weather-temp"></p>
+          <p class="hourly-weather-temp temp-text">
+            <span class="temp-value"></span>
+            <span class="temp-unit"></span>
+          </p>
         </li>
         <li class="hourly-weather-li">
           <p class="hourly-weather-hour"></p>
           <img src="" alt="" class="hourly-weather-icon" />
-          <p class="hourly-weather-temp"></p>
+          <p class="hourly-weather-temp temp-text">
+            <span class="temp-value"></span>
+            <span class="temp-unit"></span>
+          </p>
         </li>
         <li class="hourly-weather-li">
           <p class="hourly-weather-hour"></p>
           <img src="" alt="" class="hourly-weather-icon" />
-          <p class="hourly-weather-temp"></p>
+          <p class="hourly-weather-temp temp-text">
+            <span class="temp-value"></span>
+            <span class="temp-unit"></span>
+          </p>
         </li>
       </ul>
     </section>
@@ -83,37 +108,100 @@
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
         <li class="daily-weather-li">
           <p class="daily-weather-day"></p>
           <img src="" alt="" class="daily-weather-icon" />
-          <p class="daily-weather-temp"></p>
+          <p>
+            <span class="daily-weather-mintemp temp-text">
+              <span class="temp-value"></span>
+            </span>
+            /
+            <span class="daily-weather-maxtemp temp-text">
+              <span class="temp-value"></span>
+              <span class="temp-unit"></span>
+            </span>
+          </p>
         </li>
       </ul>
     </section>
