@@ -34,6 +34,7 @@ const getWeather = (() => {
       dateTime: weatherObj.current.dt,
       iconCode: weatherObj.current.weather[0].icon,
       weatherText: weatherObj.current.weather[0].description,
+      weatherType: weatherObj.current.weather[0].main,
       temperature: weatherObj.current.temp,
     };
   };

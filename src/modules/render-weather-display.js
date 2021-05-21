@@ -2,6 +2,7 @@ import { fromUnixTime, format } from 'date-fns';
 import './manage-search-city.js';
 import './manage-temperature-unit.js';
 import './manage-reload.js';
+import { getUnsplashImg } from './get-unsplash-img';
 
 const renderWeatherDisplay = ((doc) => {
   /*** Display Weather ***/
@@ -27,7 +28,20 @@ const renderWeatherDisplay = ((doc) => {
     currentWeatherTempValue.textContent = currentDatas.temperature.toFixed(1);
     currentWeatherTempValue.classList.add('celsius');
     currentWeatherTempUnit.textContent = '°C';
-
+    getUnsplashImg
+      .getImgInfos(currentDatas.weatherText)
+      .then((result) => {
+        doc.body.style.backgroundImage = `url(${result.url}),linear-gradient(rgb(209, 246, 255), rgb(85, 166, 199))`;
+        console.log(
+          `background image (${result.desc}) by ${result.creator}:`,
+          result.creatorLink,
+          'background image URL:',
+          result.url,
+        );
+      })
+      .catch((err) => {
+        console.log(err);
+      });
     console.log(currentDatas);
   };
 

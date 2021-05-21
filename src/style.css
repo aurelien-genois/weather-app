@@ -1,5 +1,6 @@
 html {
   font-size: 62.5%;
+  background-image: linear-gradient(rgb(209, 246, 255), rgb(85, 166, 199));
 }
 * {
   margin: 0;
@@ -20,6 +21,10 @@ input[type='submit'] {
 body {
   font-family: 'Josefin Sans', sans-serif;
   font-size: 1.8rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
 }
 
 /* site header */
@@ -31,13 +36,14 @@ body {
   position: relative;
   height: 18rem;
   width: 100vw;
+  z-index: 0; /* important for the :before z-index -1 to be above the body bg */
 }
 #site-header::before {
   content: '';
   height: inherit;
   width: inherit;
   background-color: whitesmoke;
-  opacity: 0.5;
+  opacity: 0.8;
   z-index: -1;
   position: absolute;
   top: 0;
@@ -202,6 +208,7 @@ body {
   padding: 1rem;
   position: relative;
   border-radius: 1rem;
+  z-index: 0; /* important for the :before z-index -1 to be above the body bg */
 }
 #today-container::before,
 #week-container::before {
@@ -211,7 +218,7 @@ body {
   padding: inherit;
   border-radius: inherit;
   background-color: rgb(215, 236, 247);
-  opacity: 0.5;
+  opacity: 0.8;
   z-index: -1;
   position: absolute;
   top: 0;
