@@ -4,6 +4,7 @@ const manageTemperatureUnit = ((doc) => {
   tempCheckbox.checked = false; // reset to celsius state
   const tempsValues = doc.querySelectorAll('.temp-text .temp-value');
   const tempsUnits = doc.querySelectorAll('.temp-text .temp-unit');
+  const tempUnitsText = doc.querySelectorAll('.switch-temp-text');
 
   const _convertToFahrenheit = (valueSpan, valueText) => {
     const tempF = (valueText * 9) / 5 + 32;
@@ -17,6 +18,9 @@ const manageTemperatureUnit = ((doc) => {
     tempsUnits.forEach((unit) => {
       unit.textContent = '°F';
     });
+    tempUnitsText.forEach((unitLabel) =>
+      unitLabel.classList.toggle('text-bold'),
+    );
   };
 
   const _convertToCelsius = (valueSpan, valueText) => {
@@ -31,6 +35,9 @@ const manageTemperatureUnit = ((doc) => {
     tempsUnits.forEach((unit) => {
       unit.textContent = '°C';
     });
+    tempUnitsText.forEach((unitLabel) =>
+      unitLabel.classList.toggle('text-bold'),
+    );
   };
 
   tempCheckbox.addEventListener('change', () => {

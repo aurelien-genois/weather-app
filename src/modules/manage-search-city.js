@@ -22,7 +22,12 @@ const manageSearchCity = ((doc) => {
       renderWeatherDisplay.displayWeatherInfo(data);
     });
     searchCityInput.value = '';
-    cityName.textContent = city;
+    // replace cityName & country ISO
+    cityName.textContent = '';
+    const countrySpan = doc.createElement('span');
+    countrySpan.classList.add('country-iso');
+    countrySpan.textContent = country;
+    cityName.append(city, countrySpan);
     searchCityContainer.removeChild(searchCityInput.nextSibling);
   };
 
