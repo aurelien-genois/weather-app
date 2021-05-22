@@ -3,7 +3,7 @@ const getWeather = (() => {
   const _getCityCoor = async (cityName, countryCode) => {
     // country code in ISO 3166 alpha-2
     const apiResponse = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&limit=5&appid=902817488113353b62ab2f6e7f7a1dc9`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${cityName},${countryCode}&limit=5&appid=902817488113353b62ab2f6e7f7a1dc9`,
       { mode: 'cors' },
     );
     const jsonData = await apiResponse.json();
@@ -13,7 +13,7 @@ const getWeather = (() => {
 
     return { lat, lon };
     // return a promise !
-    // http://api.openweathermap.org/geo/1.0/direct?q=London,GB&appid=902817488113353b62ab2f6e7f7a1dc9
+    // https://api.openweathermap.org/geo/1.0/direct?q=London,GB&appid=902817488113353b62ab2f6e7f7a1dc9
   };
 
   // get weather data

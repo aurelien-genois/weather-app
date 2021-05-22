@@ -10,7 +10,7 @@ const manageSearchCity = ((doc) => {
 
   const _getCityList = async (cityName) => {
     const apiResponse = await fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=902817488113353b62ab2f6e7f7a1dc9`,
+      `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=902817488113353b62ab2f6e7f7a1dc9`,
     );
     const jsonData = await apiResponse.json();
     return jsonData;
