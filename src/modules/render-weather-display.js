@@ -22,7 +22,7 @@ const renderWeatherDisplay = ((doc) => {
     // datas is a current object
     const date = fromUnixTime(currentDatas.dateTime);
     todayDateTime.textContent = format(date, 'cccc d LLLL y');
-    currentWeatherIcon.src = `http://openweathermap.org/img/wn/${currentDatas.iconCode}@4x.png`;
+    currentWeatherIcon.src = `https://openweathermap.org/img/wn/${currentDatas.iconCode}@4x.png`;
     currentWeatherIcon.alt = currentDatas.weatherText;
     currentWeatherDesc.textContent = currentDatas.weatherText;
     currentWeatherTempValue.textContent = currentDatas.temperature.toFixed(1);
@@ -60,7 +60,7 @@ const renderWeatherDisplay = ((doc) => {
       );
       const hour = fromUnixTime(hourlyDatas[i].dateTime);
       hourlyWeatherHour.textContent = `${format(hour, 'H')}h`;
-      hourlyWeatherIcon.src = `http://openweathermap.org/img/wn/${hourlyDatas[i].iconCode}@2x.png`;
+      hourlyWeatherIcon.src = `https://openweathermap.org/img/wn/${hourlyDatas[i].iconCode}@2x.png`;
       hourlyWeatherIcon.alt = hourlyDatas[i].weatherText;
       hourlyWeatherDesc.textContent = hourlyDatas[i].weatherText;
       hourlyWeatherTempValue.textContent = hourlyDatas[i].temperature.toFixed();
@@ -87,7 +87,7 @@ const renderWeatherDisplay = ((doc) => {
       const dailyWeatherTempUnit = li.querySelector('.temp-unit');
       const day = fromUnixTime(dailyDatas[i].dateTime);
       dailyWeatherDay.textContent = format(day, 'ccc');
-      dailyWeatherIcon.src = `http://openweathermap.org/img/wn/${dailyDatas[i].iconCode}@2x.png`;
+      dailyWeatherIcon.src = `https://openweathermap.org/img/wn/${dailyDatas[i].iconCode}@2x.png`;
       dailyWeatherIcon.alt = dailyDatas[i].weatherText;
       dailyWeatherDesc.textContent = dailyDatas[i].weatherText;
       dailyWeatherMinTempValue.textContent = dailyDatas[
