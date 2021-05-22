@@ -1,6 +1,12 @@
 html {
   font-size: 62.5%;
-  background-image: linear-gradient(rgb(209, 246, 255), rgb(85, 166, 199));
+  --dark-blue: #358acc;
+  --light-blue: #59a6e0;
+  --white-blue: #fdffff;
+  --purple: #402568;
+  --light-orange: #fdb1b1;
+  --yellow: #ffef6a;
+  background-image: linear-gradient(#c9f7ff, #e06b38);
 }
 * {
   margin: 0;
@@ -20,7 +26,9 @@ input[type='submit'] {
 
 body {
   font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
   font-size: 1.8rem;
+  color: var(--white-blue);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -34,7 +42,7 @@ body {
   align-items: center;
   margin-bottom: 2rem;
   position: relative;
-  height: 18rem;
+  height: 20rem;
   width: 100vw;
   z-index: 0; /* important for the :before z-index -1 to be above the body bg */
 }
@@ -42,7 +50,7 @@ body {
   content: '';
   height: inherit;
   width: inherit;
-  background-color: whitesmoke;
+  background-image: linear-gradient(var(--purple) 85%, rgba(0, 0, 0, 0));
   opacity: 0.8;
   z-index: -1;
   position: absolute;
@@ -52,6 +60,7 @@ body {
   font-family: 'Josefin Slab', serif;
   font-size: 4rem;
   margin-top: 1.5rem;
+  color: var(--light-orange);
 }
 #city-container {
   display: flex;
@@ -63,6 +72,7 @@ body {
   display: flex;
   align-items: center;
   height: 3rem;
+  color: var(--yellow);
 }
 #city-name,
 .search-city-suggestion {
@@ -75,10 +85,10 @@ body {
 }
 #reload-btn {
   font-size: 1.6rem;
-  color: darkcyan;
+  color: var(--light-orange);
 }
 #reload-btn:hover {
-  color: cyan;
+  color: var(--yellow);
 }
 /* search form */
 #search-city-form {
@@ -89,15 +99,15 @@ body {
 #search-city-form input[type='submit'] {
   margin-left: 1rem;
   height: 3rem;
-  background: darkcyan;
+  background: var(--dark-blue);
   padding: 0.2rem 0.8rem 0 0.8rem;
   border-radius: 0.5rem;
-  color: white;
+  color: var(--white-blue);
   font-size: 1.4rem;
   font-weight: 600;
 }
 #search-city-form input[type='submit']:hover {
-  background: cyan;
+  background: var(--light-blue);
 }
 #search-city-container {
   display: flex;
@@ -114,13 +124,17 @@ body {
 #search-city-list {
   position: absolute;
   top: 3rem;
-  background: wheat;
+  background: var(--dark-blue);
   z-index: 1;
   width: inherit;
 }
 #search-city-list li {
   cursor: pointer;
-  margin: 0.3rem 0;
+  padding: 0.5rem 0 0.2rem 0;
+  margin: 0;
+}
+#search-city-list li:hover {
+  background: var(--light-blue);
 }
 
 /* switch temperature unit */
@@ -151,9 +165,9 @@ body {
   width: inherit;
   box-sizing: border-box;
   height: inherit;
-  border: rgb(161, 161, 129) solid 0.2rem;
+  border: var(--white-blue) solid 0.2rem;
   border-radius: 1rem;
-  background-color: rgb(182, 182, 154);
+  background-color: var(--dark-blue);
   display: inline-block;
 }
 
@@ -166,8 +180,12 @@ body {
   width: 1.8rem;
   height: 1.8rem;
   border-radius: 0.9rem;
-  background-color: rgb(236, 236, 204);
   transition: transform 0.15s ease-in-out;
+  background-color: var(--white-blue);
+}
+#switch-temp-checkbox:not(:checked) + label:hover::after,
+#switch-temp-checkbox:checked + label:hover::after {
+  background-color: var(--yellow);
 }
 
 #switch-temp-checkbox:not(:checked) + label::after {
@@ -177,7 +195,7 @@ body {
   transform: translate(2.4rem, 0);
 }
 #switch-temp-checkbox:checked + label::before {
-  background-color: rgb(24, 179, 190);
+  /* background-color: var(--dark-blue); */
 }
 .switch-temp-text:nth-of-type(1) {
   justify-self: right;
@@ -186,10 +204,15 @@ body {
   justify-self: left;
 }
 .text-bold {
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--yellow);
 }
 
 /* today current weather */
+.temp-text {
+  color: var(--yellow);
+  font-weight: 600;
+}
 #today-container {
   height: 32rem;
   width: 53rem;
@@ -217,8 +240,8 @@ body {
   width: inherit;
   padding: inherit;
   border-radius: inherit;
-  background-color: rgb(215, 236, 247);
-  opacity: 0.8;
+  background-color: var(--dark-blue);
+  opacity: 0.9;
   z-index: -1;
   position: absolute;
   top: 0;
@@ -229,6 +252,7 @@ body {
   font-weight: 700;
   font-family: 'Josefin Slab', serif;
   margin-bottom: 1rem;
+  color: var(--light-orange);
 }
 #current-weather-container {
   display: flex;
@@ -293,8 +317,7 @@ body {
 }
 .hourly-weather-desc,
 .daily-weather-desc {
-  font-size: 1.6rem;
-  line-height: 1.4rem;
+  line-height: 1.6rem;
 }
 .hourly-weather-temp .temp-unit,
 .daily-weather-temp .temp-unit {
@@ -310,7 +333,7 @@ body {
 
 /* footer */
 #site-footer {
-  background: rgb(23, 18, 54);
+  background: var(--purple);
   width: 100%;
   display: flex;
   align-items: center;
@@ -322,18 +345,18 @@ body {
 }
 #site-footer p {
   text-align: center;
-  color: whitesmoke;
+  color: var(--white-blue);
   margin: 1rem auto;
 }
 #site-footer a {
-  color: cyan;
   text-decoration: none;
+  color: var(--light-orange);
 }
 #site-footer a:visited {
-  color: palevioletred;
+  color: var(--light-blue);
 }
 #site-footer a:hover {
-  color: lightgreen;
+  color: var(--yellow);
 }
 
 /* mobile max-width: 600px */

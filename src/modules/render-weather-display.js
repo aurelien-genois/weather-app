@@ -28,8 +28,9 @@ const renderWeatherDisplay = ((doc) => {
     currentWeatherTempValue.textContent = currentDatas.temperature.toFixed(1);
     currentWeatherTempValue.classList.add('celsius');
     currentWeatherTempUnit.textContent = '°C';
+    const tempText = currentDatas.temperature > 18 ? 'hot' : 'cold';
     getUnsplashImg
-      .getImgInfos(currentDatas.weatherText)
+      .getImgInfos(currentDatas.weatherText + ' nature ' + tempText)
       .then((result) => {
         doc.body.style.backgroundImage = `url(${result.url}),linear-gradient(rgb(209, 246, 255), rgb(85, 166, 199))`;
         console.log(
