@@ -23,6 +23,10 @@ input[type='submit'] {
   cursor: pointer;
   font-family: inherit;
 }
+/* prevent the default focus outline on chrome */
+:focus {
+  outline: transparent none 0px;
+}
 
 body {
   font-family: 'Josefin Sans', sans-serif;
@@ -32,7 +36,11 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100vh;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+#main-content {
+  padding-bottom: 6rem; /* prevent content hiding by footer which is fixed position */
 }
 
 /* site header */
@@ -43,7 +51,7 @@ body {
   margin-bottom: 2rem;
   position: relative;
   height: 20rem;
-  width: 100vw;
+  width: 100%;
   z-index: 0; /* important for the :before z-index -1 to be above the body bg */
 }
 #site-header::before {
@@ -120,6 +128,14 @@ body {
 #search-city-input {
   width: inherit;
   box-sizing: border-box;
+  font-size: inherit;
+  border: 0.2rem solid var(--dark-blue);
+  height: 3rem;
+  border-radius: 0.5rem;
+  padding: 0 0.5rem 0.2rem 0.5rem;
+}
+#search-city-input:focus {
+  border: 0.2rem solid var(--yellow);
 }
 #search-city-list {
   position: absolute;
@@ -183,6 +199,10 @@ body {
   transition: transform 0.15s ease-in-out;
   background-color: var(--white-blue);
 }
+#switch-temp-checkbox:not(:checked) + label:hover::before,
+#switch-temp-checkbox:checked + label:hover::before {
+  border: var(--yellow) solid 0.2rem;
+}
 #switch-temp-checkbox:not(:checked) + label:hover::after,
 #switch-temp-checkbox:checked + label:hover::after {
   background-color: var(--yellow);
@@ -215,11 +235,11 @@ body {
 }
 #today-container {
   height: 32rem;
-  width: 53rem;
+  width: 54rem;
 }
 #week-container {
   height: 20.5rem;
-  width: 63rem;
+  width: 64rem;
 }
 #today-container,
 #week-container {
@@ -267,7 +287,10 @@ body {
   height: 10rem;
 }
 #current-weather-details {
-  margin-left: 1rem;
+  margin-left: 3rem;
+}
+#current-weather-temp-container {
+  margin-top: 1rem;
 }
 #current-weather-temp {
   display: flex;
@@ -297,9 +320,9 @@ body {
   align-items: center;
   justify-items: center;
   text-align: center;
-  width: 8rem;
+  width: 8.5rem;
   padding: 0.4rem;
-  border-right: solid 1px black;
+  border-right: solid 1px var(--purple);
 }
 .hourly-weather-li:last-of-type,
 .daily-weather-li:last-of-type {
@@ -349,8 +372,8 @@ body {
   margin: 1rem auto;
 }
 #site-footer a {
-  text-decoration: none;
   color: var(--light-orange);
+  text-decoration: none;
 }
 #site-footer a:visited {
   color: var(--light-blue);
@@ -360,8 +383,37 @@ body {
 }
 
 /* mobile max-width: 600px */
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 680px) {
   html {
     font-size: 1.5vw;
+  }
+  #today-container {
+    height: 33rem;
+    width: 60rem;
+  }
+  .hourly-weather-li {
+    width: 9.5rem;
+  }
+  #week-container {
+    height: 44.5rem;
+    width: 50rem;
+  }
+  #daily-weather-container {
+    flex-direction: column;
+    width: 100%;
+  }
+  .daily-weather-li {
+    grid-template-columns: 1fr 3fr 4fr 3fr;
+    grid-template-rows: auto;
+    width: 100%;
+    border-right: 0 transparent solid;
+    border-bottom: solid 1px var(--purple);
+    height: 5rem;
+  }
+  .daily-weather-icon {
+    width: 40%;
+  }
+  .daily-weather-li:last-of-type {
+    border-bottom: solid 0 transparent;
   }
 }
