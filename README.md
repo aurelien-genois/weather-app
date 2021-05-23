@@ -26,7 +26,7 @@ The [ninth Odin project](https://www.theodinproject.com/paths/full-stack-javascr
 <br/>
 <br/>
 <p align="center">
-<img src="screenshot-mobile.png" alt="mobile screenshot" style="float: center; margin-left: 10px" width="30%"></p>
+<img src="screenshot-mobile.png" alt="mobile screenshot" style="float: center; margin-left: 10px" width="45%"></p>
 
 ## Challenges
 Using together several libraries and APIs brings thinking the code differently and highlights the importance of the organization for both code and dependencies.
