@@ -111,11 +111,16 @@ const getWeather = (() => {
         // Convert Unix timestamp to milliseconds
         const date = new Date(timestamp * 1000);
         // Get the current timezone offset in minutes and convert to seconds
-        const currentTimezoneOffset = new Date().getTimezoneOffset() * 60;
+        let currentTimezoneOffset = new Date().getTimezoneOffset() * 60;
+        // Reverse the sign of the current timezone offset
+        // (because getTimezoneOffset method in JavaScript returns the difference, in minutes, between UTC and local time. The value is positive if the local timezone is behind UTC and negative if the local timezone is ahead of UTC.)
+        currentTimezoneOffset = -currentTimezoneOffset;
         // Apply the timezone offset (adjusting for the current timezone offset)
         date.setSeconds(date.getSeconds() + timezoneOffset - currentTimezoneOffset);
         // Get the Unix timestamp in seconds
         const unixTimestamp = Math.floor(date.getTime() / 1000);
+
+        // ! décalage de 4 heures !!!
         return unixTimestamp;
     }
 
